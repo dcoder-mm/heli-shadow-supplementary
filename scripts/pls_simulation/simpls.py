@@ -66,7 +66,7 @@ def construct_frame(exposure_us, RPM, PLS, a1, a2, readout_us=h*Trow,
 	kReadout = readout_us/h/Trow
 
 	if gain==None:
-		gain = 1/(exposure_trows + (h/2)/PLS*kReadout) * gain_correction
+		gain = 1/(exposure_trows + hold_trows/PLS + (h/2)/PLS*kReadout) * gain_correction
 
 	sensor = np.zeros((w,h))
 
